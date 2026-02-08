@@ -1,21 +1,25 @@
 package com.example;
 import java.util.Objects;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Entity;
 
 @Entity
-public class SoftwareEngineerService {
+public class SoftwareEngineer {
 
 	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
 	private String techStack;
-	public SoftwareEngineerService() {
+	public SoftwareEngineer() {
 
 	}
-	public SoftwareEngineerService(Integer id,
-									String name,
-									String techStack) {
+	public SoftwareEngineer(Integer id,
+                            String name,
+                            String techStack) {
 		this.id = id;
 		this.name = name;
 		this.techStack = techStack;
@@ -54,7 +58,7 @@ public class SoftwareEngineerService {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		SoftwareEngineerService other = (SoftwareEngineerService) obj;
+		SoftwareEngineer other = (SoftwareEngineer) obj;
 		return Objects.equals(id, other.id) && Objects.equals(name, other.name)
 				&& Objects.equals(techStack, other.techStack);
 	}
